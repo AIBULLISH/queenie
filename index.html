@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>$QUEENIE – Krypto-Königin</title>
 <style>
-  /* -------------------------------- GLOBAL STYLE -------------------------------- */
   body {
     margin: 0;
     padding: 0;
@@ -13,27 +12,47 @@
     background: #000;
     color: #d4af37;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
+  /* ---------------------- Partikel-Hintergrund ---------------------- */
+  #particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ---------------------- Überschriften mit Glow & Animation ---------------------- */
   h1, h2, h3 {
     text-align: center;
     margin: 0;
+    text-shadow: 0 0 10px #d4af37, 0 0 20px #ffd700, 0 0 30px #ffea00;
+    animation: glow 2s infinite alternate;
+    position: relative;
+    z-index: 1;
   }
 
   h1 { font-size: 42px; margin-top: 20px; }
   h2 { font-size: 30px; margin: 30px 0 15px; }
   h3 { font-size: 22px; margin-bottom: 8px; }
 
-  .section {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: 0 auto;
+  @keyframes glow {
+    0% { text-shadow: 0 0 10px #d4af37, 0 0 20px #ffd700, 0 0 30px #ffea00; }
+    100% { text-shadow: 0 0 20px #ffd700, 0 0 30px #fff700, 0 0 40px #fff700; }
   }
 
-  /* -------------------------------- HEADER -------------------------------- */
+  .section { padding: 40px 20px; max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+  /* ---------------------- HEADER ---------------------- */
   header {
     text-align: center;
     padding: 40px 20px 20px;
+    position: relative;
+    z-index: 1;
   }
 
   .logo-placeholder {
@@ -42,8 +61,16 @@
     margin: 0 auto;
     border: 2px solid #d4af37;
     border-radius: 12px;
+    box-shadow: 0 0 25px #ffd700;
+    animation: logoGlow 3s infinite alternate;
   }
 
+  @keyframes logoGlow {
+    0% { box-shadow: 0 0 20px #ffd700; }
+    100% { box-shadow: 0 0 35px #fff700; }
+  }
+
+  /* ---------------------- Buttons ---------------------- */
   .buy-button, .x-button {
     display: inline-block;
     padding: 12px 28px;
@@ -53,9 +80,18 @@
     font-weight: bold;
     text-decoration: none;
     border-radius: 6px;
+    box-shadow: 0 0 10px #ffd700;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
   }
 
-  /* -------------------------------- IMAGE BOXES -------------------------------- */
+  .buy-button:hover, .x-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #ffd700, 0 0 40px #fff700;
+  }
+
+  /* ---------------------- Bildplatzhalter ---------------------- */
   .image-placeholder {
     width: 100%;
     height: 280px;
@@ -68,18 +104,47 @@
     align-items: center;
     color: #d4af37;
     font-size: 18px;
+    box-shadow: 0 0 15px #ffd700;
+    animation: imageGlow 2s infinite alternate;
+    position: relative;
+    z-index: 1;
   }
 
-  /* -------------------------------- FAQ -------------------------------- */
-  .faq-item {
-    margin-bottom: 20px;
-    text-align: left;
+  @keyframes imageGlow {
+    0% { box-shadow: 0 0 10px #ffd700; }
+    100% { box-shadow: 0 0 25px #fff700; }
   }
+
+  /* ---------------------- FAQ ---------------------- */
+  .faq-section { text-align: center; position: relative; z-index: 1; }
+  .faq-item {
+    display: inline-block;
+    text-align: left;
+    margin: 15px;
+    padding: 15px 20px;
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    max-width: 400px;
+    box-shadow: 0 0 10px #ffd700;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(0,0,0,0.6);
+  }
+
+  .faq-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px #ffd700, 0 0 30px #fff700;
+  }
+
+  .faq-item p { display: none; margin-top: 10px; color: #fff; }
 </style>
 </head>
 <body>
 
-<!-- -------------------------------- HEADER -------------------------------- -->
+<!-- ---------------------- Partikel-Hintergrund ---------------------- -->
+<canvas id="particles"></canvas>
+
+<!-- ---------------------- HEADER ---------------------- -->
 <header>
   <div class="logo-placeholder"></div>
   <h1>$QUEENIE – Inspired by Influence</h1>
@@ -87,77 +152,99 @@
   <a href="https://x.com" class="x-button">X</a>
 </header>
 
-<!-- -------------------------------- STORY SECTION -------------------------------- -->
+<!-- ---------------------- STORY ---------------------- -->
 <section class="section">
-
 <h1>Die geheime Krypto-Königin – Aufstieg aus Sichuan</h1>
-
 <p>Sie kommt aus einem kleinen Dorf in der Provinz Sichuan, im Südwesten Chinas. Heute ist Yi He 39 und Milliardärin – und zieht die Strippen des mächtigsten Krypto-Imperiums der Welt! Ihr Rezept: eine Mischung aus Bodenständigkeit und gnadenlosem Ehrgeiz.</p>
 
 <h2>Wer ist die Krypto-Königin, die kaum jemand kennt?</h2>
-
-<p>Yi He, aufgewachsen in ärmlichen Verhältnissen als Tochter eines Lehrer-Paares, hatte ihren ersten Job als Promoterin für Softdrinks vor einem Supermarkt. Rückblickend sagt sie darüber in einem Interview: „Es war ein harter Job, und vom vielen Quatschen und Anpreisen wurde meine Stimme ganz heiser.“</p>
-
-<p>Yi He studierte Psychologie. Doch nach ihrem Abschluss 2006/2007 am Institute of Psychology, Chinese Academy of Sciences in Peking stellte sie fest, dass sie auf diesem Weg wenig Geld verdienen würde. „Die meisten Menschen in meiner Heimatstadt brechen die Schule ab, bevor sie 16 werden, um in Fabriken zu arbeiten. Auch ich stellte damals die Natur des Geldes infrage und las viele Bücher, fand jedoch keine Antwort“, sagte sie 2023 in einem Interview.</p>
-
-<p>Sie suchte also in den Medien nach Jobs, moderierte Reisesendungen im chinesischen Fernsehen und wechselte dann ins Marketing in der Start-up-Welt, kam dort auf Veranstaltungen 2013 zum ersten Mal mit Krypto in Berührung. Sie ist fasziniert! Sie sieht darin mehr Chancengleichheit und Freiheit im Finanzsystem. Also gründet Yi He selbst ihr erstes Bitcoin-Start-up namens OkCoin.</p>
-
+<p>Yi He, aufgewachsen in ärmlichen Verhältnissen als Tochter eines Lehrer-Paares, hatte ihren ersten Job als Promoterin für Softdrinks vor einem Supermarkt...</p>
 <div class="image-placeholder">Bild – Platzhalter</div>
 
 <h2>Yi He hält ihr Privatleben unter Verschluss – und agiert strategisch</h2>
-
-<p>Das Unternehmen bleibt klein – doch in diesem Zeitraum sollte es zu einer Schlüsselbeziehung kommen: Ihr Privatleben hält Yi He streng unter Verschluss, aber sie begegnete dem chinesisch-kanadischen Geschäftsmann Changpeng Zhao (48). Zusammen gründeten sie 2017 Binance. Binance wuchs in wenigen Monaten zur weltweit größten Kryptowährungsbörse nach Handelsvolumen heran. Während ihr Co-Gründer schlagartig bekannt wurde und sich unter dem Spitznamen CZ in der weltweiten Krypto-Szene einen Namen machte, agierte sie als strategische Architektin im Hintergrund. Ihr Führungsstil ist berüchtigt: Neue Binance-Mitarbeiter müssen zunächst im Kundenservice arbeiten, um zu verstehen, wie Nutzer denken und handeln.</p>
-
-<p>Über ihren Co-Gründer sagte sie: „In dieser Phase der schnellen Entwicklung bin ich manchmal zu forsch vorgegangen, und CZ gab mir direkte und konstruktive Rückmeldungen. Er hielt mich geerdet und sorgte immer dafür, dass ich und das Team das Richtige taten. Das half mir, mich schnell weiterzuentwickeln, zu reflektieren und nach und nach reifer zu werden.“</p>
-
-<p>Ein großes Lob – erst später wurde bekannt, dass Yi He und CZ auch privat ein Paar sind; mittlerweile sollen sie Eltern von drei Kindern sein.</p>
-
+<p>Das Unternehmen bleibt klein – doch in diesem Zeitraum sollte es zu einer Schlüsselbeziehung kommen: Ihr Privatleben hält Yi He streng unter Verschluss, aber sie begegnete dem chinesisch-kanadischen Geschäftsmann Changpeng Zhao (48)...</p>
 <div class="image-placeholder">Bild – Platzhalter</div>
 
 <h2>Ein Leben zwischen Milliarden – und globaler Kritik</h2>
-
-<p>Binance-Gründer Zhao Changpeng soll mehrfacher Milliardär sein – zeitweise soll er mehr als 60 Milliarden Dollar schwer gewesen sein. Die beiden fanden in einer Welt zusammen, die viel versprach – der zugleich aber auch ein negatives Image anhaftet. China hat 2021 alle Bitcoin und Kryptowährungen verboten. Firmensitz von Binance sind offenbar die Cayman Islands; Yi He und CZ wohnen in Abu Dhabi.</p>
-
-<p>Dann der Bruch: Binance wird vorgeworfen, nicht ausreichende Kontrollen auf seiner Börse eingerichtet zu haben, sodass Transaktionen für Kriminelle, sanktionierte Länder und andere riskante Aktivitäten nicht verhindert wurden. CZ wird zu einer viermonatigen Gefängnisstrafe verurteilt, weil er gegen das amerikanische Geldwäschegesetz verstoßen hat. Im September 2024 darf er das Gefängnis verlassen.</p>
+<p>Binance-Gründer Zhao Changpeng soll mehrfacher Milliardär sein – zeitweise soll er mehr als 60 Milliarden Dollar schwer gewesen sein...</p>
 
 <h2>Yi He tritt aus der Unsichtbarkeit</h2>
-
-<p>Yi He tritt in dieser Zeit aus der Unsichtbarkeit. Sie übernimmt Verantwortung, stabilisiert das Unternehmen und verhindert, dass es im Strudel globaler Behördenverfahren zerrieben wird. Seit 2022 hat sie bei Binance Labs das Sagen – dem milliardenschweren Investment-Arm des Krypto-Riesen. Dort entscheidet sie, welche Web3-Projekte Geld bekommen und groß gemacht werden. Mit ihren Entscheidungen gibt sie nicht nur den Kurs fürs Tagesgeschäft vor – sie bestimmt mit, wie die Blockchain von morgen aussehen wird.</p>
-
+<p>Yi He tritt in dieser Zeit aus der Unsichtbarkeit. Sie übernimmt Verantwortung, stabilisiert das Unternehmen und verhindert...</p>
 <div class="image-placeholder">Bild – Platzhalter</div>
-
 </section>
 
-<!-- -------------------------------- BUY & X BUTTON -------------------------------- -->
+<!-- ---------------------- BUY & X BUTTONS ---------------------- -->
 <div class="section" style="text-align:center;">
   <a href="https://four.meme" class="buy-button">BUY</a>
   <a href="https://x.com" class="x-button">X</a>
 </div>
 
-<!-- -------------------------------- FAQ -------------------------------- -->
-<div class="section">
-  <h2>FAQ</h2>
-
-  <div class="faq-item">
-    <h3>Was ist $QUEENIE?</h3>
-    <p>Ein Meme-Coin auf Solana, inspiriert von der Geschichte einer der prägendsten Persönlichkeiten der Kryptoszene.</p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Wo kann man $QUEENIE kaufen?</h3>
-    <p>Der Launch findet auf four.meme statt. Der BUY-Button führt direkt dorthin.</p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Hat der Coin Utility?</h3>
-    <p>Nein. Es ist ein reines Kultur-, Story- und Community-Projekt. Der Wert entsteht durch Reichweite und Narrativ.</p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Besteht eine Verbindung zu realen Personen?</h3>
-    <p>Nein. Der Coin ist unabhängig. Die Inspiration ist rein thematisch und symbolisch.</p>
-  </div>
+<!-- ---------------------- FAQ ---------------------- -->
+<div class="section faq-section">
+<h2>FAQ</h2>
+<div class="faq-item" onclick="this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block'">
+  <h3>Was ist $QUEENIE?</h3>
+  <p>Ein Meme-Coin auf BNB, inspiriert von der Geschichte einer der prägendsten Persönlichkeiten der Kryptoszene.</p>
 </div>
+<div class="faq-item" onclick="this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block'">
+  <h3>Wo kann man $QUEENIE kaufen?</h3>
+  <p>Der Launch findet auf four.meme statt. Der BUY-Button führt direkt dorthin.</p>
+</div>
+<div class="faq-item" onclick="this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block'">
+  <h3>Hat der Coin Utility?</h3>
+  <p>Nein. Es ist ein reines Kultur-, Story- und Community-Projekt. Der Wert entsteht durch Reichweite und Narrativ.</p>
+</div>
+<div class="faq-item" onclick="this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block'">
+  <h3>Besteht eine Verbindung zu realen Personen?</h3>
+  <p>Nein. Der Coin ist unabhängig. Die Inspiration ist rein thematisch und symbolisch.</p>
+</div>
+</div>
+
+<script>
+  // ---------------------- Partikel-Animation ----------------------
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let particlesArray;
+
+  function initParticles() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particlesArray = [];
+    for(let i = 0; i < 80; i++){
+      particlesArray.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3 + 1,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.5
+      });
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = "gold";
+      ctx.fill();
+      p.x += p.speedX;
+      p.y += p.speedY;
+      if(p.x < 0) p.x = canvas.width;
+      if(p.x > canvas.width) p.x = 0;
+      if(p.y < 0) p.y = canvas.height;
+      if(p.y > canvas.height) p.y = 0;
+    });
+    requestAnimationFrame(animateParticles);
+  }
+
+  window.addEventListener('resize', () => {
+    initParticles();
+  });
+
+  initParticles();
+  animateParticles();
+</script>
 
 </body>
 </html>
