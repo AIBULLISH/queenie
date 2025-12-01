@@ -1,250 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>$QUEENIE – Crypto Queen</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>$QUEENIE</title>
+
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: #d4af37;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+    /* -------------------------------- GLOBAL STYLE -------------------------------- */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #000;
+        color: #d4af37;
+        line-height: 1.6;
+    }
 
-  /* ---------------------- Particle Background ---------------------- */
-  #particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
+    h1, h2, h3 {
+        text-align: center;
+        margin: 0;
+        text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37;
+    }
 
-  /* ---------------------- Glowing Headings ---------------------- */
-  h1, h2, h3 {
-    text-align: center;
-    margin: 0;
-    text-shadow: 0 0 10px #d4af37, 0 0 20px #ffd700, 0 0 30px #ffea00;
-    animation: glow 2s infinite alternate;
-    position: relative;
-    z-index: 1;
-  }
+    h1 { font-size: 42px; margin-top: 20px; }
+    h2 { font-size: 30px; margin-bottom: 15px; }
+    h3 { font-size: 22px; margin-bottom: 8px; }
 
-  h1 { font-size: 42px; margin-top: 20px; }
-  h2 { font-size: 30px; margin: 30px 0 15px; }
-  h3 { font-size: 22px; margin-bottom: 8px; }
+    .section {
+        padding: 40px 20px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
 
-  @keyframes glow {
-    0% { text-shadow: 0 0 10px #d4af37, 0 0 20px #ffd700, 0 0 30px #ffea00; }
-    100% { text-shadow: 0 0 20px #ffd700, 0 0 30px #fff700, 0 0 40px #fff700; }
-  }
+    /* -------------------------------- HEADER -------------------------------- */
+    header {
+        text-align: center;
+        padding: 40px 20px 20px;
+    }
 
-  .section { padding: 40px 20px; max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .logo-placeholder {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+        border: 2px solid #d4af37;
+        border-radius: 12px;
+        overflow: hidden;
+    }
 
-  /* ---------------------- HEADER ---------------------- */
-  header {
-    text-align: center;
-    padding: 40px 20px 20px;
-    position: relative;
-    z-index: 1;
-  }
+    .logo-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-  .logo-placeholder {
-    width: 180px;
-    height: 180px;
-    margin: 0 auto;
-    border: 2px solid #d4af37;
-    border-radius: 12px;
-    box-shadow: 0 0 25px #ffd700;
-    animation: logoGlow 3s infinite alternate;
-  }
+    .buy-button, .x-button {
+        display: inline-block;
+        padding: 12px 28px;
+        margin: 20px 10px;
+        background: #d4af37;
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+    }
 
-  @keyframes logoGlow {
-    0% { box-shadow: 0 0 20px #ffd700; }
-    100% { box-shadow: 0 0 35px #fff700; }
-  }
+    /* -------------------------------- IMAGE BOXES -------------------------------- */
+    .image-placeholder {
+        width: 100%;
+        height: 280px;
+        background: #111;
+        border: 2px solid #d4af37;
+        border-radius: 10px;
+        margin: 30px 0;
+        overflow: hidden;
+    }
 
-  /* ---------------------- Buttons ---------------------- */
-  .buy-button, .x-button {
-    display: inline-block;
-    padding: 12px 28px;
-    margin: 20px 10px;
-    background: #d4af37;
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 6px;
-    box-shadow: 0 0 10px #ffd700;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    z-index: 1;
-  }
+    .image-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-  .buy-button:hover, .x-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px #ffd700, 0 0 40px #fff700;
-  }
-
-  /* ---------------------- Image Placeholders ---------------------- */
-  .image-placeholder {
-    width: 100%;
-    height: 280px;
-    background: #111;
-    border: 2px solid #d4af37;
-    border-radius: 10px;
-    margin: 30px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #d4af37;
-    font-size: 18px;
-    box-shadow: 0 0 15px #ffd700;
-    animation: imageGlow 2s infinite alternate;
-    position: relative;
-    z-index: 1;
-  }
-
-  @keyframes imageGlow {
-    0% { box-shadow: 0 0 10px #ffd700; }
-    100% { box-shadow: 0 0 25px #fff700; }
-  }
-
-  /* ---------------------- FAQ ---------------------- */
-  .faq-section { text-align: center; position: relative; z-index: 1; }
-  .faq-item {
-    display: inline-block;
-    text-align: left;
-    margin: 15px;
-    padding: 15px 20px;
-    border: 2px solid #d4af37;
-    border-radius: 12px;
-    max-width: 400px;
-    box-shadow: 0 0 10px #ffd700;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: rgba(0,0,0,0.6);
-  }
-
-  .faq-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px #ffd700, 0 0 30px #fff700;
-  }
-
-  .faq-item p { display: none; margin-top: 10px; color: #fff; }
+    /* -------------------------------- FAQ -------------------------------- */
+    .faq-item {
+        margin-bottom: 20px;
+        text-align: center;
+    }
 </style>
 </head>
+
 <body>
 
-<!-- ---------------------- Particle Background ---------------------- -->
-<canvas id="particles"></canvas>
-
-<!-- ---------------------- HEADER ---------------------- -->
+<!-- -------------------------------- HEADER -------------------------------- -->
 <header>
-  <div class="logo-placeholder"></div>
-  <h1>$QUEENIE – Inspired by Influence</h1>
-  <a href="https://four.meme" class="buy-button">BUY</a>
-  <a href="https://x.com" class="x-button">X</a>
+    <div class="logo-placeholder">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <h1>$QUEENIE – Inspired by Influence</h1>
+
+    <a href="https://four.meme" class="buy-button">BUY</a>
+    <a href="https://x.com" class="x-button">X</a>
 </header>
 
-<!-- ---------------------- STORY ---------------------- -->
-<section class="section">
-<h1>The Secret Crypto Queen – Rise from Sichuan</h1>
-<p>She comes from a small village in Sichuan province in southwest China. Today, Yi He is 39, a billionaire – and pulls the strings behind the world’s most powerful crypto empire! Her recipe: a mix of grounded humility and relentless ambition.</p>
+<!-- -------------------------------- STORY SECTION -------------------------------- -->
+<div class="section">
+    <h2>The Untold Story of the Crypto Queen – Rising from Sichuan</h2>
 
-<h2>Who is the Crypto Queen hardly anyone knows?</h2>
-<p>Yi He grew up in modest circumstances as the daughter of a teacher couple. Her first job was promoting soft drinks outside a supermarket...</p>
-<div class="image-placeholder">Image – Placeholder</div>
+    <p>
+        She comes from a small village in Sichuan Province, southwest China. Today, Yi He is 39 and a billionaire – pulling the strings of the most powerful crypto empire in the world! Her recipe: a mix of groundedness and relentless ambition.
+    </p>
 
-<h2>Yi He keeps her private life secret – acting calmly and strategically</h2>
-<p>The company remained small – but during this time she formed a key relationship: her private life remains strictly hidden, but she met the Chinese-Canadian entrepreneur Changpeng Zhao (48)...</p>
-<div class="image-placeholder">Image – Placeholder</div>
+    <h3>Who is the crypto queen hardly anyone knows?</h3>
 
-<h2>A life between billions – and global criticism</h2>
-<p>Binance founder Zhao Changpeng, called CZ, is reportedly a multi-billionaire – at times worth more than $60 billion...</p>
+    <p>
+        Yi He, raised in humble circumstances as the daughter of a pair of teachers, had her first job as a promoter for soft drinks in front of a supermarket. Looking back in an interview, she said: "It was a tough job, and all the talking and promoting made my voice hoarse." Yi He studied psychology. After graduating in 2006/2007 at the Institute of Psychology, Chinese Academy of Sciences in Beijing, she realized she would earn little on this path. "Most people in my hometown drop out of school before turning 16 to work in factories. I also questioned the nature of money and read many books but found no answer," she said in 2023. 
+    </p>
 
-<h2>Yi He steps out of the shadows</h2>
-<p>During this period, Yi He stepped forward. She took responsibility, stabilized the company, and prevented Binance from being crushed under international regulatory pressure. Since 2022, she has led Binance Labs, the crypto giant’s billion-dollar investment arm, deciding which Web3 projects receive funding and become influential. Her decisions not only guide daily operations but shape the blockchain of tomorrow.</p>
-<div class="image-placeholder">Image – Placeholder</div>
-</section>
+    <p>
+        She looked for jobs in media, hosted travel shows on Chinese television, then moved into marketing in the startup world, where in 2013 she came into contact with crypto for the first time at events. She was fascinated! She saw more equality and freedom in the financial system. So Yi He founded her first Bitcoin startup called OkCoin herself.
+    </p>
 
-<!-- ---------------------- BUY & X BUTTONS ---------------------- -->
+    <div class="image-placeholder">
+        <img src="image1.jpg" alt="Yi He">
+    </div>
+
+    <p>
+        The company remained small – but during this period, a key relationship emerged: her private life remained strictly private, but she met Chinese-Canadian businessman Changpeng Zhao (48). Together they founded Binance in 2017. Binance grew within months to become the world's largest cryptocurrency exchange by trading volume. While her co-founder quickly became well-known worldwide as CZ, Yi He acted as a strategic architect in the background. Her leadership style is notorious: new Binance employees must first work in customer support to understand how users think and act.
+    </p>
+
+    <p>
+        About her co-founder she said: "During this phase of rapid development, I sometimes acted too boldly, and CZ gave me direct and constructive feedback. He kept me grounded and always ensured that my team and I did the right things. It helped me develop quickly, reflect, and gradually mature."
+    </p>
+
+    <p>
+        High praise – only later did it become known that Yi He and CZ are also a couple; they are now said to be parents of three children. The two came together in a world full of promise – but also a negative image. China banned all Bitcoin and cryptocurrencies in 2021. Binance’s headquarters are reportedly on the Cayman Islands; Yi He and CZ live in Abu Dhabi.
+    </p>
+
+    <div class="image-placeholder">
+        <img src="image2.jpg" alt="Yi He & CZ">
+    </div>
+</div>
+
+<!-- -------------------------------- BUY & X BUTTON -------------------------------- -->
 <div class="section" style="text-align:center;">
-  <a href="https://four.meme" class="buy-button">BUY</a>
-  <a href="https://x.com" class="x-button">X</a>
+    <a href="https://four.meme" class="buy-button">BUY</a>
+    <a href="https://x.com" class="x-button">X</a>
 </div>
 
-<!-- ---------------------- FAQ ---------------------- -->
-<div class="section faq-section">
-<h2>FAQ</h2>
-<div class="faq-item" onclick="this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block'">
-  <h3>What is $QUEENIE?</h3>
-  <p>A meme coin on BNB, inspired by one of the most influential figures in the crypto space.</p>
-</div>
-<div class="faq-item" onclick="this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block'">
-  <h3>Where can I buy $QUEENIE?</h3>
-  <p>The launch is on four.meme. The BUY button links directly there.</p>
-</div>
-<div class="faq-item" onclick="this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block'">
-  <h3>Does the coin have utility?</h3>
-  <p>No. It’s purely a culture, story, and community project. Its value comes from reach and narrative.</p>
-</div>
-<div class="faq-item" onclick="this.querySelector('p').style.display = this.querySelector('p').style.display === 'block' ? 'none' : 'block'">
-  <h3>Is it related to real people?</h3>
-  <p>No. The coin is independent. The inspiration is purely thematic and symbolic.</p>
-</div>
-</div>
+<!-- -------------------------------- FAQ -------------------------------- -->
+<div class="section">
+    <h2>FAQ</h2>
 
-<script>
-  // ---------------------- Particle Animation ----------------------
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  let particlesArray;
+    <div class="faq-item">
+        <h3>What is $QUEENIE?</h3>
+        <p>A meme coin on BNB, inspired by the story of one of the most influential personalities in crypto.</p>
+    </div>
 
-  function initParticles() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    particlesArray = [];
-    for(let i = 0; i < 80; i++){
-      particlesArray.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5
-      });
-    }
-  }
+    <div class="faq-item">
+        <h3>Where can I buy $QUEENIE?</h3>
+        <p>The launch takes place on four.meme. The BUY button leads directly there.</p>
+    </div>
 
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particlesArray.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = "gold";
-      ctx.fill();
-      p.x += p.speedX;
-      p.y += p.speedY;
-      if(p.x < 0) p.x = canvas.width;
-      if(p.x > canvas.width) p.x = 0;
-      if(p.y < 0) p.y = canvas.height;
-      if(p.y > canvas.height) p.y = 0;
-    });
-    requestAnimationFrame(animateParticles);
-  }
+    <div class="faq-item">
+        <h3>Does the coin have utility?</h3>
+        <p>No. It is purely a cultural, story, and community project. The value comes from reach and narrative.</p>
+    </div>
 
-  window.addEventListener('resize', () => {
-    initParticles();
-  });
-
-  initParticles();
-  animateParticles();
-</script>
+    <div class="faq-item">
+        <h3>Is there a connection to real people?</h3>
+        <p>No. The coin is independent. The inspiration is purely thematic and symbolic.</p>
+    </div>
+</div>
 
 </body>
 </html>
