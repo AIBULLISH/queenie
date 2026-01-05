@@ -57,7 +57,7 @@
 
     .image-placeholder {
         width:100%;
-        height:auto;
+        max-height:400px;
         background:#111;
         border:2px solid #d4af37;
         border-radius:10px;
@@ -115,7 +115,7 @@
 <body>
 
 <header>
-    <!-- NEUES LOGO -->
+    <!-- LOGO -->
     <div class="logo-placeholder">
         <img src="logo.png" alt="$QUEENIE Logo">
     </div>
@@ -123,8 +123,8 @@
     <h1>$QUEENIE – 灵感女王</h1>
 
     <div class="language-switch">
-        <button class="lang-button active" onclick="switchLang('cn')">中文</button>
-        <button class="lang-button" onclick="switchLang('en')">EN</button>
+        <button class="lang-button active" onclick="switchLang('cn', this)">中文</button>
+        <button class="lang-button" onclick="switchLang('en', this)">EN</button>
     </div>
 
     <a href="https://four.meme" class="buy-button">购买 / BUY</a>
@@ -137,7 +137,6 @@
     <p>她来自中国西南四川的一个小村庄。今天，何怡 39 岁，成为亿万富翁——掌控着世界上最强大的加密帝国！她的秘诀：脚踏实地，同时拥有不屈不挠的野心。</p>
 
     <h3>鲜为人知的加密女王是谁？</h3>
-
     <p>何怡在两个教师家庭中长大，家庭条件普通。她的第一份工作是在超市前为软饮料做推广。回忆起这段经历，她在采访中说：“这是一份很辛苦的工作，整天说话和推广让我嗓子嘶哑。”她曾学习心理学，但在 2006/2007 年毕业于中国科学院心理研究所后，她意识到靠这个赚不了多少钱。随后她进入媒体行业，在中国电视上主持旅游节目，后来转向初创企业市场营销，并在 2013 年的活动中首次接触到加密货币。她被深深吸引！她在金融系统中看到了更多的公平与自由，很快创办了她的第一家比特币创业公司 OkCoin。</p>
 
     <div class="image-placeholder">
@@ -246,17 +245,14 @@
 </footer>
 
 <script>
-function switchLang(lang) {
+function switchLang(lang, btn) {
     document.getElementById('cn').style.display = lang === 'cn' ? 'block' : 'none';
     document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
-    document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));
-    document.querySelector('.lang-button[onclick="switchLang(\'' + lang + '\')"]').classList.add('active');
+    document.querySelectorAll('.lang-button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 }
-switchLang('cn');
+switchLang('cn', document.querySelector('.lang-button'));
 </script>
 
 </body>
     </html>
-
-
-
