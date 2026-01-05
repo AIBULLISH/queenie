@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>$QUEENIE</title>
 <style>
-    /* ----------------------------- GLOBAL ----------------------------- */
     body {
         margin:0;
         padding:0;
@@ -31,7 +30,6 @@
         margin:0 auto;
     }
 
-    /* ----------------------------- HEADER ----------------------------- */
     header {
         text-align:center;
         padding:40px 20px 20px;
@@ -57,9 +55,9 @@
         border-radius:6px;
     }
 
-    /* ----------------------------- IMAGE ----------------------------- */
     .image-placeholder {
         width:100%;
+        height:auto;
         background:#111;
         border:2px solid #d4af37;
         border-radius:10px;
@@ -75,13 +73,36 @@
         border-radius:10px;
     }
 
-    /* ----------------------------- FAQ ----------------------------- */
+    .language-switch {
+        text-align:center;
+        margin-bottom:20px;
+    }
+
+    .lang-button {
+        padding:8px 16px;
+        margin:0 5px;
+        background:#d4af37;
+        color:#000;
+        font-weight:bold;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+    }
+
+    .lang-button.active {
+        background:#fff;
+        color:#000;
+    }
+
+    .lang {
+        display:none;
+    }
+
     .faq-item {
         margin-bottom:20px;
         text-align:center;
     }
 
-    /* ----------------------------- FOOTER ----------------------------- */
     footer {
         text-align:center;
         padding:20px;
@@ -93,130 +114,143 @@
 </head>
 <body>
 
-<!-- ----------------------------- HEADER ----------------------------- -->
 <header>
     <div class="logo-placeholder">
         <img src="logo.png" alt="$QUEENIE Logo" style="width:100%; height:100%; object-fit:cover;">
     </div>
-    <h1>$QUEENIE – Inspired by Influence</h1>
-    <a href="https://four.meme" class="buy-button">BUY</a>
-    <a href="https://x.com" class="x-button">X</a>
+    <h1>$QUEENIE – 灵感女王</h1>
+
+    <div class="language-switch">
+        <button class="lang-button active" onclick="switchLang('cn')">中文</button>
+        <button class="lang-button" onclick="switchLang('en')">EN</button>
+    </div>
+
+    <a href="https://four.meme" class="buy-button">购买 / BUY</a>
+    <a href="https://x.com" class="x-button">X / X</a>
 </header>
 
-<!-- ----------------------------- STORY SECTION ----------------------------- -->
-<div class="section">
-    <h2>The Untold Story of the Crypto Queen – Rise from Sichuan</h2>
+<div class="section lang" id="cn">
+    <h2>加密女王的不为人知的故事——来自四川的崛起</h2>
+    <p>她来自中国西南四川的一个小村庄。今天，何怡 39 岁，成为亿万富翁——掌控着世界上最强大的加密帝国！她的秘诀：脚踏实地，同时拥有不屈不挠的野心。</p>
 
-    <p>
-        She comes from a small village in Sichuan province, southwest China. Today, Yi He is 39 and a billionaire – 
-        pulling the strings of the world's most powerful crypto empire! Her recipe: a mix of groundedness and relentless ambition.
-    </p>
+    <h3>鲜为人知的加密女王是谁？</h3>
+    <p>何怡在两个教师家庭中长大，家庭条件普通。她的第一份工作是在超市前为软饮料做推广。回忆起这段经历，她在采访中说：“这是一份很辛苦的工作，整天说话和推广让我嗓子嘶哑。”她曾学习心理学，但在 2006/2007 年毕业于中国科学院心理研究所后，她意识到靠这个赚不了多少钱。“家乡大部分人在 16 岁前就辍学去工厂工作。那时我也在思考金钱的本质，读了很多书，但没有答案。”随后她进入媒体行业，在中国电视上主持旅游节目，后来转向初创企业市场营销，并在 2013 年的活动中首次接触到加密货币。她被深深吸引！她在金融系统中看到了更多的公平与自由，很快创办了她的第一家比特币创业公司 OkCoin。</p>
+
+    <div class="image-placeholder">
+        <img src="yihe1.png" alt="Yi He">
+    </div>
+
+    <h2>何怡保持私生活低调——为公司战略布局</h2>
+    <p>公司仍然规模不大——但在此期间，一个关键关系出现：何怡严格保持个人隐私，但她遇到了中加商人赵长鹏（48岁）。两人于 2017 年共同创办了 Binance。Binance 很快成为全球交易量最大的加密货币交易所。她的联合创始人 CZ 迅速走红，而她则在幕后担任战略架构师。她的领导风格堪称传奇：新的 Binance 员工必须先在客户服务部门工作，以了解用户的思维和行为。</p>
+
+    <div class="image-placeholder">
+        <img src="yihe2.png" alt="Yi He">
+    </div>
+
+    <p>高度赞扬——后来才披露，何怡和 CZ 也是情侣；他们现在育有三个孩子。两人在充满希望的世界中携手，但也面临负面舆论。中国在 2021 年禁止所有比特币和加密货币。Binance 总部位于开曼群岛；何怡和 CZ 现居阿布扎比。</p>
+
+    <div class="image-placeholder">
+        <img src="yihe3.png" alt="Abu Dhabi">
+    </div>
+
+    <p>突发事件：Binance 被指控未在交易所实施足够的控制措施，导致犯罪分子、受制裁国家等进行交易。CZ 因违反美国反洗钱法被判入狱四个月，于 2024 年 9 月获释。</p>
+
+    <div class="image-placeholder">
+        <img src="cz.png" alt="CZ">
+    </div>
+
+    <p style="text-align:center; font-weight:bold; margin-top:15px;">Binance 创始人赵长鹏（CZ）据说是亿万富翁——身价一度超过 600 亿美元。</p>
+
+    <h2>常见问题</h2>
+    <div class="faq-item">
+        <h3>什么是 $QUEENIE？</h3>
+        <p>这是一个基于 BNB 的迷因币，灵感来源于加密世界最具影响力人物的故事。</p>
+    </div>
+    <div class="faq-item">
+        <h3>我在哪里可以买到 $QUEENIE？</h3>
+        <p>启动在 four.meme 进行，点击购买按钮即可直接前往。</p>
+    </div>
+    <div class="faq-item">
+        <h3>该币有实际用途吗？</h3>
+        <p>没有实际用途，它是一个文化、故事和社区项目。价值来自影响力和叙事。</p>
+    </div>
+    <div class="faq-item">
+        <h3>与真实人物有关联吗？</h3>
+        <p>没有，该币是独立的，其灵感完全是主题化和象征性的。</p>
+    </div>
+</div>
+
+<div class="section lang" id="en">
+    <h2>The Untold Story of the Crypto Queen – Rise from Sichuan</h2>
+    <p>She comes from a small village in Sichuan province, southwest China. Today, Yi He is 39 and a billionaire – pulling the strings of the world's most powerful crypto empire! Her recipe: a mix of groundedness and relentless ambition.</p>
 
     <h3>Who is the crypto queen hardly anyone knows?</h3>
-
-    <p>
-        Yi He, raised in humble conditions as the daughter of two teachers, had her first job as a promoter for soft drinks 
-        in front of a supermarket. Looking back, she said in an interview: “It was a tough job, and all the talking and promoting 
-        made my voice hoarse.” She studied psychology, but after graduating in 2006/2007 at the Institute of Psychology, 
-        Chinese Academy of Sciences in Beijing, she realized she wouldn’t earn much that way. “Most people in my hometown drop out 
-        before 16 to work in factories. I also questioned the nature of money at that time, read many books, but found no answer,” 
-        she said in 2023. She then sought jobs in media, hosted travel shows on Chinese TV, and moved into start-up marketing, 
-        where she first came into contact with crypto at events in 2013. She was fascinated! She saw more fairness and freedom 
-        in the financial system, and soon founded her first Bitcoin start-up, OkCoin.
-    </p>
+    <p>Yi He, raised in humble conditions as the daughter of two teachers, had her first job as a promoter for soft drinks in front of a supermarket. Looking back, she said in an interview: “It was a tough job, and all the talking and promoting made my voice hoarse.” She studied psychology, but after graduating in 2006/2007 at the Institute of Psychology, Chinese Academy of Sciences in Beijing, she realized she wouldn’t earn much that way. She then sought jobs in media, hosted travel shows on Chinese TV, and moved into start-up marketing, where she first came into contact with crypto at events in 2013. She was fascinated! She saw more fairness and freedom in the financial system, and soon founded her first Bitcoin start-up, OkCoin.</p>
 
     <div class="image-placeholder">
         <img src="yihe1.png" alt="Yi He">
     </div>
 
     <h2>Yi He keeps her private life secret – and acts strategically for her company</h2>
-
-    <p>
-        The company remained small – but during this period, a key relationship emerged: Yi He keeps her private life strictly private, 
-        but she met Chinese-Canadian businessman Changpeng Zhao (48). Together, they founded Binance in 2017. Binance quickly became 
-        the world’s largest cryptocurrency exchange by trading volume. While her co-founder instantly gained fame as CZ, she acted as 
-        the strategic architect in the background. Her leadership style is legendary: new Binance employees must first work in customer 
-        service to understand how users think and act.
-    </p>
-
-    <p>
-        About her co-founder, she said: “During this phase of rapid growth, I sometimes acted too boldly, and CZ gave me direct and 
-        constructive feedback. He kept me grounded and always ensured that the team and I did the right thing. It helped me develop 
-        quickly, reflect, and gradually mature.”
-    </p>
+    <p>The company remained small – but during this period, a key relationship emerged: Yi He keeps her private life strictly private, but she met Chinese-Canadian businessman Changpeng Zhao (48). Together, they founded Binance in 2017. Binance quickly became the world’s largest cryptocurrency exchange by trading volume. While her co-founder instantly gained fame as CZ, she acted as the strategic architect in the background. Her leadership style is legendary: new Binance employees must first work in customer service to understand how users think and act.</p>
 
     <div class="image-placeholder">
         <img src="yihe2.png" alt="Yi He">
     </div>
 
-    <p>
-        High praise – it was only later revealed that Yi He and CZ are also a couple; they are now parents of three children. 
-        The two came together in a world full of promise, but also with a negative image. China banned all Bitcoin and cryptocurrencies 
-        in 2021. Binance is based on the Cayman Islands; Yi He and CZ live in Abu Dhabi.
-    </p>
+    <p>High praise – it was only later revealed that Yi He and CZ are also a couple; they are now parents of three children. The two came together in a world full of promise, but also with a negative image. China banned all Bitcoin and cryptocurrencies in 2021. Binance is based on the Cayman Islands; Yi He and CZ live in Abu Dhabi.</p>
 
     <div class="image-placeholder">
         <img src="yihe3.png" alt="Abu Dhabi">
     </div>
 
-    <p>
-        Then the break: Binance was accused of not having sufficient controls in place on its exchange, allowing transactions for criminals, 
-        sanctioned countries, and other risky activities. CZ was sentenced to four months in prison for violating U.S. anti-money laundering laws. 
-        He was released in September 2024.
-    </p>
-
-    <p>
-        Yi He stepped out of invisibility during this time. She took responsibility, stabilized the company, and prevented it from being 
-        crushed under global regulatory pressure. Since 2022, she has been in charge of Binance Labs – the billion-dollar investment arm 
-        of the crypto giant. There, she decides which Web3 projects get funding and go big. With her decisions, she not only sets the daily 
-        course but also helps shape the blockchain of tomorrow.
-    </p>
+    <p>Then the break: Binance was accused of not having sufficient controls in place on its exchange, allowing transactions for criminals, sanctioned countries, and other risky activities. CZ was sentenced to four months in prison for violating U.S. anti-money laundering laws. He was released in September 2024.</p>
 
     <div class="image-placeholder">
         <img src="cz.png" alt="CZ">
     </div>
 
-    <p style="text-align:center; font-weight:bold; margin-top:15px;">
-        Binance founder Zhao Changpeng, known as CZ, is said to be a multi-billionaire – at times worth over 60 billion dollars.
-    </p>
+    <p style="text-align:center; font-weight:bold; margin-top:15px;">Binance founder Zhao Changpeng, known as CZ, is said to be a multi-billionaire – at times worth over 60 billion dollars.</p>
 
-</div>
-
-<!-- ----------------------------- BUY & X BUTTON SECTION ----------------------------- -->
-<div class="section" style="text-align:center;">
-    <a href="https://four.meme" class="buy-button">BUY</a>
-    <a href="https://x.com" class="x-button">X</a>
-</div>
-
-<!-- ----------------------------- FAQ SECTION ----------------------------- -->
-<div class="section">
     <h2>FAQ</h2>
-
     <div class="faq-item">
         <h3>What is $QUEENIE?</h3>
         <p>A meme-coin on BNB, inspired by the story of one of the most influential personalities in crypto.</p>
     </div>
-
     <div class="faq-item">
         <h3>Where can I buy $QUEENIE?</h3>
         <p>The launch takes place on four.meme. The BUY button takes you directly there.</p>
     </div>
-
     <div class="faq-item">
         <h3>Does the coin have utility?</h3>
         <p>No. It’s a pure culture, story, and community project. Value comes from reach and narrative.</p>
     </div>
-
     <div class="faq-item">
         <h3>Is there a connection to real people?</h3>
         <p>No. The coin is independent. The inspiration is purely thematic and symbolic.</p>
     </div>
 </div>
 
-<!-- ----------------------------- FOOTER ----------------------------- -->
+<div class="section" style="text-align:center;">
+    <a href="https://four.meme" class="buy-button">购买 / BUY</a>
+    <a href="https://x.com" class="x-button">X / X</a>
+</div>
+
 <footer>
-    © 2025 $QUEENIE. All rights reserved.
+    © 2025 $QUEENIE. 版权所有 / All rights reserved.
 </footer>
+
+<script>
+function switchLang(lang) {
+    document.getElementById('cn').style.display = lang === 'cn' ? 'block' : 'none';
+    document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
+    document.querySelectorAll('.lang-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelector('.lang-button[onclick="switchLang(\'' + lang + '\')"]').classList.add('active');
+}
+
+// Standard: Chinesisch anzeigen
+switchLang('cn');
+</script>
 
 </body>
         </html>
